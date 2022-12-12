@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Dynamic SVG!</title>
+</head>
+ <button id="a" type="button" style="float:right">a</button>
+<svg id="cont" height="1000" width="1000" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+</svg>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script>
+  var svgns = "http://www.w3.org/2000/svg",
+  container = document.getElementById( 'cont' );
+
+$('#a').click(function(event) {
+ var circle = document.createElementNS(svgns, 'circle');
+  console.log(Math.floor(Math.random() * 101))
+      circle.setAttributeNS(null, 'cx', Math.floor(Math.random() * 1001));
+      circle.setAttributeNS(null, 'cy', Math.floor(Math.random() * 1001));
+      circle.setAttributeNS(null, 'r', 50);
+      circle.setAttributeNS(null, 'style', 'fill: none; stroke: blue; stroke-width: 1px;' );
+      container.appendChild(circle);
+});
+</script>
+<body>
+</body>
+</html>
